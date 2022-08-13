@@ -2,6 +2,8 @@
 import { helpCommand } from './commands/help.js';
 import { Generator } from './generator.js';
 
+let gen = new Generator();
+
 // console.log(process.argv[2]);
 
 let slashCommand = process.argv[2];
@@ -13,16 +15,17 @@ function parseCommand(command) {
 
 switch(slashCommand) {
     case '--init':
+        gen.create();
         break;
     case '--password':
         break;
-    case '--find':
+    case '--find':  
         break;
     case '--save':
-        let gen = new Generator();
-        gen.create();
+        gen.save();
         break;
     case '--remove': 
+        gen.remove();
         break;
     case '--help':
         parseCommand(helpCommand);
